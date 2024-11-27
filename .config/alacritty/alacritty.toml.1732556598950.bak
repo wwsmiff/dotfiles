@@ -1,0 +1,18 @@
+import = [
+  "/usr/local/lib/node_modules/alacritty-themes/themes/Ayu-Dark.toml"
+]
+
+[font]
+size = 9.5
+
+  [font.normal]
+  family = "JetBrainsMono Nerd Font"
+  style = "Regular"
+
+[window.padding]
+x = 5
+y = 5
+
+[window.dimensions]
+lines = 25
+columns = 90

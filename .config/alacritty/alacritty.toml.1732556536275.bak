@@ -1,0 +1,7 @@
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 9.5
+
+[window]
+padding = { x = 5, y = 5 }
+dimensions = { lines = 25, columns = 90 }
