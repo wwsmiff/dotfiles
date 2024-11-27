@@ -1,5 +1,5 @@
 ### Details
-- Desktop Environment(s) - Xfce, i3
+- Desktop Environment(s) - i3, Xfce
 - Editor - Vim (SpaceVim)
 - Colorscheme - Nord
 - OS - Debian (Sid)
