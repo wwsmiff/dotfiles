@@ -1,11 +1,11 @@
 function fish_prompt
+    set prev_status $status
     if test "$CONTAINER_ID" != ""
         set_color a020f0
         echo -n "⬢"
         set_color normal
         echo -n " [$CONTAINER_ID] "
     end
-    set prev_status $status
     set -l git_branch (git branch 2>/dev/null | sed -n '/\* /s///p')
     set_color cyan
     echo -n (whoami)
