@@ -3,48 +3,31 @@ filetype off                  " required
 set shell=/bin/bash
 filetype plugin indent on
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin()
 
-call vundle#begin()
-	
-	Plugin 'VundleVim/Vundle.vim'
-	Plugin 'tpope/vim-fugitive'
-	Plugin 'git://git.wincent.com/command-t.git'
-	Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-	Plugin 'jiangmiao/auto-pairs'
-	Plugin 'itchyny/lightline.vim'
-	Plugin 'octol/vim-cpp-enhanced-highlight'
-	Plugin 'google/vim-maktaba'
-	Plugin 'google/vim-codefmt'
+	Plug 'VundleVim/Vundle.vim'
+	Plug 'tpope/vim-fugitive'
+	Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'itchyny/lightline.vim'
+	Plug 'octol/vim-cpp-enhanced-highlight'
+	Plug 'google/vim-maktaba'
+	Plug 'google/vim-codefmt'
+	Plug 'preservim/nerdtree'
+	Plug 'jistr/vim-nerdtree-tabs'
+	Plug 'preservim/nerdcommenter'
+	Plug 'mengelbrecht/lightline-bufferline'
 " Also add Glaive, which is used to configure codefmt's maktaba flags. See
 " `:help :Glaive` for usage.
-	Plugin 'google/vim-glaive'
+	Plug 'google/vim-glaive'
 
-	" Vim Colorschemes
-	Plugin 'morhetz/gruvbox'
-	Plugin 'sainnhe/sonokai'
-	Plugin 'jaredgorski/spacecamp'
-	Plugin 'ajmwagar/vim-deus'
-	Plugin 'ayu-theme/ayu-vim'
-	Plugin 'tomasr/molokai'
-	Plugin 'fmoralesc/molokayo'
-	Plugin 'marcopaganini/termschool-vim-theme'
-	Plugin 'whatyouhide/vim-gotham'
-	Plugin 'evprkr/galaxian-vim'
-	Plugin 'preservim/nerdtree'
-	Plugin 'jistr/vim-nerdtree-tabs'
-	Plugin 'chriskempson/base16-vim'
-	Plugin 'preservim/nerdcommenter'
-	Plugin 'mengelbrecht/lightline-bufferline'
+	" Colorschemes
+	Plug 'chriskempson/base16-vim'
 
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 set nu
+set relativenumber
 set tabstop=2
 set shiftwidth=2
 set nowrap
@@ -67,7 +50,7 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <F5> :!clear <CR> :make <CR>
 map <C-f> :NERDTreeTabsToggle<CR>
-colo molokai
+colo base16-gruvbox-dark-hard
 set nofoldenable
 set foldmethod=indent
 let g:NERDCreateDefaultMappings = 1
