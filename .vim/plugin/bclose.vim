@@ -21,13 +21,13 @@ endfunction
 " Command ':Bclose!' is the same, but executes ':bd!' (discard changes).
 " An optional argument can specify which buffer to close (name or number).
 function! s:Bclose(bang, buffer)
-  "if empty(a:buffer)
+	if empty(a:buffer)
 		let btarget = ""
-  "elseif a:buffer =~ '^\d\+$'
-    "let btarget = bufnr(str2nr(a:buffer))
-  "else
-    "let btarget = bufnr(a:buffer)
-  "endif
+	elseif a:buffer =~ '^\d\+$'
+		let btarget = bufnr(str2nr(a:buffer))
+	else
+		let btarget = bufnr(a:buffer)
+	endif
   if btarget < 0
     call s:Warn('No matching buffer for '.a:buffer)
     return
