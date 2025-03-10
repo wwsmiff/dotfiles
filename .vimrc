@@ -67,7 +67,7 @@ noremap <leader>0 :tablast<cr>
 noremap <leader>p :tabprev<cr>
 noremap <leader>n :tabnext<cr>
 
-noremap <space>bd :bdelete<cr>
+noremap <space>bd :Bclose<cr> 
 noremap <space>bn :bnext<cr>
 noremap <space>bp :bprevious<cr>
 
@@ -75,9 +75,8 @@ noremap > >>
 noremap < <<
 
 set nobackup nowritebackup
-
+set hidden
 noremap <space>wF :tabnew<cr>
-
 noremap <space>cl :call nerdcommenter#Comment('n', 'toggle')<CR>
 
 let g:lightline = {
