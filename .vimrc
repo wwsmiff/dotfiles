@@ -32,6 +32,7 @@ set tabstop=2
 set shiftwidth=2
 set nowrap
 set sidescroll=1
+set undofile
 syntax on
 set laststatus=2
 set nomousehide
@@ -78,6 +79,9 @@ set nobackup nowritebackup
 set hidden
 noremap <space>wF :tabnew<cr>
 noremap <space>cl :call nerdcommenter#Comment('n', 'toggle')<CR>
+
+set directory=~/.vim/swapfiles/
+set undodir=~/.vim/undo/
 
 let g:lightline = {
 				\ 'tabline': {
