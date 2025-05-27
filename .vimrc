@@ -23,6 +23,8 @@ call plug#begin()
 
 	" Colorschemes
 	Plug 'chriskempson/base16-vim'
+	Plug 'nordtheme/vim'
+	Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
 
@@ -51,7 +53,7 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <F5> :!clear <CR> :make <CR>
 map <C-f> :NERDTreeTabsToggle<CR>
-colo base16-gruvbox-dark-hard
+colo jellybeans
 set nofoldenable
 set foldmethod=indent
 let g:NERDCreateDefaultMappings = 1
@@ -83,7 +85,8 @@ noremap <space>cl :call nerdcommenter#Comment('n', 'toggle')<CR>
 set directory=~/.vim/swapfiles/
 set undodir=~/.vim/undo/
 
-let g:lightline = {
+let g:lightline = { 
+			\ 'colorscheme': 'default',
 				\ 'tabline': {
 			\   'left': [ ['buffers'] ],
 			\   'right': [ ['close'] ]
