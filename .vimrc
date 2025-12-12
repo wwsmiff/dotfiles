@@ -25,16 +25,22 @@ call plug#begin()
 	Plug 'chriskempson/base16-vim'
 	Plug 'nordtheme/vim'
 	Plug 'nanotech/jellybeans.vim'
+	Plug 'nikolvs/vim-sunbather'
 
 call plug#end()
 
 set nu
 set relativenumber
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
+set autoindent
+set smartindent
+set smarttab
 set nowrap
 set sidescroll=1
 set undofile
+set background=dark
 syntax on
 set laststatus=2
 set nomousehide
@@ -70,12 +76,14 @@ noremap <leader>0 :tablast<cr>
 noremap <leader>p :tabprev<cr>
 noremap <leader>n :tabnext<cr>
 
-noremap <space>bd :Bclose<cr> 
+noremap <space>bd :bdelete<cr> 
 noremap <space>bn :bnext<cr>
 noremap <space>bp :bprevious<cr>
 
 noremap > >>
 noremap < <<
+
+xnoremap <leader>y y:call system("wl-copy", getreg('"', 1, 1))<CR>
 
 set nobackup nowritebackup
 set hidden
@@ -85,11 +93,12 @@ noremap <space>cl :call nerdcommenter#Comment('n', 'toggle')<CR>
 set directory=~/.vim/swapfiles/
 set undodir=~/.vim/undo/
 
+set tabline=2
+
 let g:lightline = { 
 			\ 'colorscheme': 'default',
 				\ 'tabline': {
 			\   'left': [ ['buffers'] ],
-			\   'right': [ ['close'] ]
       \ },
 			\ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers'
@@ -110,7 +119,7 @@ augroup autoformat_settings
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType haskell AutoFormatBuffer ormolu
   " Alternative for web languages: prettier
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  "autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType jsonnet AutoFormatBuffer jsonnetfmt
   autocmd FileType julia AutoFormatBuffer JuliaFormatter
@@ -118,8 +127,8 @@ augroup autoformat_settings
   autocmd FileType lua AutoFormatBuffer luaformatterfiveone
   autocmd FileType markdown AutoFormatBuffer prettier
   autocmd FileType ocaml AutoFormatBuffer ocamlformat
-  autocmd FileType python AutoFormatBuffer yapf
-  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType python AutoFormatBuffer black
+	" Alternative: autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType ruby AutoFormatBuffer rubocop
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType swift AutoFormatBuffer swift-format
