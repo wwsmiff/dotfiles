@@ -20,12 +20,14 @@ call plug#begin()
 " Also add Glaive, which is used to configure codefmt's maktaba flags. See
 " `:help :Glaive` for usage.
 	Plug 'google/vim-glaive'
+	Plug 'fatih/vim-go'
 
 	" Colorschemes
 	Plug 'chriskempson/base16-vim'
 	Plug 'nordtheme/vim'
 	Plug 'nanotech/jellybeans.vim'
 	Plug 'nikolvs/vim-sunbather'
+	Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -45,6 +47,7 @@ syntax on
 set laststatus=2
 set nomousehide
 set termguicolors     " enable true colors support
+set hlsearch
 let ayucolor="dark"
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
@@ -59,7 +62,10 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <F5> :!clear <CR> :make <CR>
 map <C-f> :NERDTreeTabsToggle<CR>
-colo jellybeans
+colo gruvbox
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermfg=NONE guibg=NONE
 set nofoldenable
 set foldmethod=indent
 let g:NERDCreateDefaultMappings = 1
@@ -116,7 +122,7 @@ augroup autoformat_settings
   autocmd FileType elixir,eelixir,heex AutoFormatBuffer mixformat
   autocmd FileType fish AutoFormatBuffer fish_indent
   autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType go AutoFormatBuffer gofmt
+  "autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType haskell AutoFormatBuffer ormolu
   " Alternative for web languages: prettier
   "autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
@@ -125,7 +131,7 @@ augroup autoformat_settings
   autocmd FileType julia AutoFormatBuffer JuliaFormatter
   autocmd FileType kotlin AutoFormatBuffer ktfmt
   autocmd FileType lua AutoFormatBuffer luaformatterfiveone
-  autocmd FileType markdown AutoFormatBuffer prettier
+  "autocmd FileType markdown AutoFormatBuffer prettier
   autocmd FileType ocaml AutoFormatBuffer ocamlformat
   autocmd FileType python AutoFormatBuffer black
 	" Alternative: autocmd FileType python AutoFormatBuffer autopep8
